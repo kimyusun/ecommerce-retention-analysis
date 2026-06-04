@@ -1,0 +1,17 @@
+# Runtime / dependency links
+node_modules/
+
+# Course materials and old submission artifacts kept locally only
+data/raw/*.csv
+docs/bootcamp/
+submissions/
+
+# Keep raw-data instructions visible while excluding bootcamp-provided CSV files
+!data/raw/README.md
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.log

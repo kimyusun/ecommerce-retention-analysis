@@ -1,0 +1,9 @@
+*.xlsx binary
+*.png binary
+*.pdf binary
+*.csv text
+*.sql text
+*.py text
+*.mjs text
+*.md text
+

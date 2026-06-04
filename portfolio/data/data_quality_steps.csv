@@ -1,0 +1,7 @@
+﻿step,description,rows_remaining,rows_removed_from_previous,rows_remaining_pct
+raw,원본 거래 라인,541909,0,100.0
+remove_cancel_invoice,InvoiceNo가 C로 시작하는 취소 거래 제거,532621,9288,98.29
+remove_short_stock_code,StockCode 5자 미만 특수 처리 코드 제거,530303,2318,97.86
+remove_non_positive_quantity,Quantity 0 이하 제거,528967,1336,97.61
+remove_non_positive_unit_price,UnitPrice 0 이하 제거,527803,1164,97.4
+remove_quantity_outliers,"대량 이상치 Quantity 80995, 74215 제거",527801,2,97.4

@@ -1,0 +1,80 @@
+{
+  "dataset": {
+    "source_file": "ecommerce_data.csv",
+    "raw_rows": 541909,
+    "raw_columns": 8,
+    "date_min": "2010-12-01 08:26:00",
+    "date_max": "2011-12-09 12:50:00",
+    "raw_unique_invoices": 25900,
+    "raw_unique_customers_non_null": 4372
+  },
+  "cleaned": {
+    "rows": 527801,
+    "revenue": 10040391.76,
+    "unique_invoices": 19784,
+    "customers_including_guest_key": 4335,
+    "guest_line_rows": 131454,
+    "guest_line_share_pct": 24.91
+  },
+  "data_quality": [
+    {
+      "step": "raw",
+      "description": "원본 거래 라인",
+      "rows_remaining": 541909,
+      "rows_removed_from_previous": 0,
+      "rows_remaining_pct": 100.0
+    },
+    {
+      "step": "remove_cancel_invoice",
+      "description": "InvoiceNo가 C로 시작하는 취소 거래 제거",
+      "rows_remaining": 532621,
+      "rows_removed_from_previous": 9288,
+      "rows_remaining_pct": 98.29
+    },
+    {
+      "step": "remove_short_stock_code",
+      "description": "StockCode 5자 미만 특수 처리 코드 제거",
+      "rows_remaining": 530303,
+      "rows_removed_from_previous": 2318,
+      "rows_remaining_pct": 97.86
+    },
+    {
+      "step": "remove_non_positive_quantity",
+      "description": "Quantity 0 이하 제거",
+      "rows_remaining": 528967,
+      "rows_removed_from_previous": 1336,
+      "rows_remaining_pct": 97.61
+    },
+    {
+      "step": "remove_non_positive_unit_price",
+      "description": "UnitPrice 0 이하 제거",
+      "rows_remaining": 527803,
+      "rows_removed_from_previous": 1164,
+      "rows_remaining_pct": 97.4
+    },
+    {
+      "step": "remove_quantity_outliers",
+      "description": "대량 이상치 Quantity 80995, 74215 제거",
+      "rows_remaining": 527801,
+      "rows_removed_from_previous": 2,
+      "rows_remaining_pct": 97.4
+    }
+  ],
+  "consistency_note": {
+    "jan_avg_daily_revenue_without_quantity_outlier_filter": 21677.66,
+    "jan_avg_daily_revenue_with_quantity_outlier_filter": 19187.86,
+    "outlier_invoice": "541431",
+    "outlier_quantity": 74215,
+    "outlier_revenue": 77183.6
+  },
+  "insights": {
+    "nov_2011_avg_daily_revenue": 48592.52,
+    "dec_2011_avg_daily_revenue": 49671.89,
+    "jan_2011_avg_daily_revenue": 19187.86,
+    "nov_2011_guest_order_share_pct": 3.96,
+    "nov_2011_guest_revenue_share_pct": 21.65,
+    "nov_2011_guest_avg_revenue_per_order": 2895.41,
+    "cohort_2010_12_m11_retention_pct": 50.17,
+    "average_m1_retention_pct": 20.45
+  }
+}

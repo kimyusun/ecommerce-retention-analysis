@@ -1,0 +1,548 @@
+{
+  "summary": {
+    "dataset": {
+      "source_file": "ecommerce_data.csv",
+      "raw_rows": 541909,
+      "raw_columns": 8,
+      "date_min": "2010-12-01 08:26:00",
+      "date_max": "2011-12-09 12:50:00",
+      "raw_unique_invoices": 25900,
+      "raw_unique_customers_non_null": 4372
+    },
+    "cleaned": {
+      "rows": 527801,
+      "revenue": 10040391.76,
+      "unique_invoices": 19784,
+      "customers_including_guest_key": 4335,
+      "guest_line_rows": 131454,
+      "guest_line_share_pct": 24.91
+    },
+    "data_quality": [
+      {
+        "step": "raw",
+        "description": "원본 거래 라인",
+        "rows_remaining": 541909,
+        "rows_removed_from_previous": 0,
+        "rows_remaining_pct": 100.0
+      },
+      {
+        "step": "remove_cancel_invoice",
+        "description": "InvoiceNo가 C로 시작하는 취소 거래 제거",
+        "rows_remaining": 532621,
+        "rows_removed_from_previous": 9288,
+        "rows_remaining_pct": 98.29
+      },
+      {
+        "step": "remove_short_stock_code",
+        "description": "StockCode 5자 미만 특수 처리 코드 제거",
+        "rows_remaining": 530303,
+        "rows_removed_from_previous": 2318,
+        "rows_remaining_pct": 97.86
+      },
+      {
+        "step": "remove_non_positive_quantity",
+        "description": "Quantity 0 이하 제거",
+        "rows_remaining": 528967,
+        "rows_removed_from_previous": 1336,
+        "rows_remaining_pct": 97.61
+      },
+      {
+        "step": "remove_non_positive_unit_price",
+        "description": "UnitPrice 0 이하 제거",
+        "rows_remaining": 527803,
+        "rows_removed_from_previous": 1164,
+        "rows_remaining_pct": 97.4
+      },
+      {
+        "step": "remove_quantity_outliers",
+        "description": "대량 이상치 Quantity 80995, 74215 제거",
+        "rows_remaining": 527801,
+        "rows_removed_from_previous": 2,
+        "rows_remaining_pct": 97.4
+      }
+    ],
+    "consistency_note": {
+      "jan_avg_daily_revenue_without_quantity_outlier_filter": 21677.66,
+      "jan_avg_daily_revenue_with_quantity_outlier_filter": 19187.86,
+      "outlier_invoice": "541431",
+      "outlier_quantity": 74215,
+      "outlier_revenue": 77183.6
+    },
+    "insights": {
+      "nov_2011_avg_daily_revenue": 48592.52,
+      "dec_2011_avg_daily_revenue": 49671.89,
+      "jan_2011_avg_daily_revenue": 19187.86,
+      "nov_2011_guest_order_share_pct": 3.96,
+      "nov_2011_guest_revenue_share_pct": 21.65,
+      "nov_2011_guest_avg_revenue_per_order": 2895.41,
+      "cohort_2010_12_m11_retention_pct": 50.17,
+      "average_m1_retention_pct": 20.45
+    }
+  },
+  "data_quality": [
+    {
+      "step": "raw",
+      "description": "원본 거래 라인",
+      "rows_remaining": 541909,
+      "rows_removed_from_previous": 0,
+      "rows_remaining_pct": 100.0
+    },
+    {
+      "step": "remove_cancel_invoice",
+      "description": "InvoiceNo가 C로 시작하는 취소 거래 제거",
+      "rows_remaining": 532621,
+      "rows_removed_from_previous": 9288,
+      "rows_remaining_pct": 98.29
+    },
+    {
+      "step": "remove_short_stock_code",
+      "description": "StockCode 5자 미만 특수 처리 코드 제거",
+      "rows_remaining": 530303,
+      "rows_removed_from_previous": 2318,
+      "rows_remaining_pct": 97.86
+    },
+    {
+      "step": "remove_non_positive_quantity",
+      "description": "Quantity 0 이하 제거",
+      "rows_remaining": 528967,
+      "rows_removed_from_previous": 1336,
+      "rows_remaining_pct": 97.61
+    },
+    {
+      "step": "remove_non_positive_unit_price",
+      "description": "UnitPrice 0 이하 제거",
+      "rows_remaining": 527803,
+      "rows_removed_from_previous": 1164,
+      "rows_remaining_pct": 97.4
+    },
+    {
+      "step": "remove_quantity_outliers",
+      "description": "대량 이상치 Quantity 80995, 74215 제거",
+      "rows_remaining": 527801,
+      "rows_removed_from_previous": 2,
+      "rows_remaining_pct": 97.4
+    }
+  ],
+  "monthly_kpi": [
+    {
+      "order_month": "2010-12",
+      "avg_daily_revenue": 25534.34,
+      "avg_daily_customers": 39.52,
+      "avg_daily_orders": 50.06,
+      "revenue_mom_pct": null,
+      "customers_mom_pct": null,
+      "orders_mom_pct": null
+    },
+    {
+      "order_month": "2011-01",
+      "avg_daily_revenue": 19187.86,
+      "avg_daily_customers": 30.94,
+      "avg_daily_orders": 34.87,
+      "revenue_mom_pct": -24.85,
+      "customers_mom_pct": -21.71,
+      "orders_mom_pct": -30.34
+    },
+    {
+      "order_month": "2011-02",
+      "avg_daily_revenue": 18176.89,
+      "avg_daily_customers": 34.32,
+      "avg_daily_orders": 39.04,
+      "revenue_mom_pct": -5.27,
+      "customers_mom_pct": 10.92,
+      "orders_mom_pct": 11.96
+    },
+    {
+      "order_month": "2011-03",
+      "avg_daily_revenue": 22305.99,
+      "avg_daily_customers": 40.1,
+      "avg_daily_orders": 46.48,
+      "revenue_mom_pct": 22.72,
+      "customers_mom_pct": 16.84,
+      "orders_mom_pct": 19.06
+    },
+    {
+      "order_month": "2011-04",
+      "avg_daily_revenue": 17210.83,
+      "avg_daily_customers": 35.83,
+      "avg_daily_orders": 41.2,
+      "revenue_mom_pct": -22.84,
+      "customers_mom_pct": -10.65,
+      "orders_mom_pct": -11.36
+    },
+    {
+      "order_month": "2011-05",
+      "avg_daily_revenue": 23912.6,
+      "avg_daily_customers": 43.81,
+      "avg_daily_orders": 53.84,
+      "revenue_mom_pct": 38.94,
+      "customers_mom_pct": 22.27,
+      "orders_mom_pct": 30.68
+    },
+    {
+      "order_month": "2011-06",
+      "avg_daily_revenue": 24629.23,
+      "avg_daily_customers": 42.47,
+      "avg_daily_orders": 50.83,
+      "revenue_mom_pct": 3.0,
+      "customers_mom_pct": -3.06,
+      "orders_mom_pct": -5.59
+    },
+    {
+      "order_month": "2011-07",
+      "avg_daily_revenue": 22238.64,
+      "avg_daily_customers": 39.32,
+      "avg_daily_orders": 46.84,
+      "revenue_mom_pct": -9.71,
+      "customers_mom_pct": -7.42,
+      "orders_mom_pct": -7.85
+    },
+    {
+      "order_month": "2011-08",
+      "avg_daily_revenue": 23406.62,
+      "avg_daily_customers": 38.74,
+      "avg_daily_orders": 43.19,
+      "revenue_mom_pct": 5.25,
+      "customers_mom_pct": -1.48,
+      "orders_mom_pct": -7.79
+    },
+    {
+      "order_month": "2011-09",
+      "avg_daily_revenue": 34351.01,
+      "avg_daily_customers": 53.27,
+      "avg_daily_orders": 60.67,
+      "revenue_mom_pct": 46.76,
+      "customers_mom_pct": 37.51,
+      "orders_mom_pct": 40.47
+    },
+    {
+      "order_month": "2011-10",
+      "avg_daily_revenue": 35700.53,
+      "avg_daily_customers": 55.52,
+      "avg_daily_orders": 64.74,
+      "revenue_mom_pct": 3.93,
+      "customers_mom_pct": 4.22,
+      "orders_mom_pct": 6.71
+    },
+    {
+      "order_month": "2011-11",
+      "avg_daily_revenue": 48592.52,
+      "avg_daily_customers": 80.37,
+      "avg_daily_orders": 91.77,
+      "revenue_mom_pct": 36.11,
+      "customers_mom_pct": 44.76,
+      "orders_mom_pct": 41.75
+    },
+    {
+      "order_month": "2011-12",
+      "avg_daily_revenue": 49671.89,
+      "avg_daily_customers": 79.22,
+      "avg_daily_orders": 90.67,
+      "revenue_mom_pct": 2.22,
+      "customers_mom_pct": -1.43,
+      "orders_mom_pct": -1.2
+    }
+  ],
+  "cohort_retention_matrix": [
+    {
+      "cohort_month": "2010-12",
+      "new_users": 885,
+      "m1_retention_pct": 36.5,
+      "m2_retention_pct": 32.32,
+      "m3_retention_pct": 38.31,
+      "m4_retention_pct": 36.16,
+      "m5_retention_pct": 39.77,
+      "m6_retention_pct": 36.16,
+      "m7_retention_pct": 34.8,
+      "m8_retention_pct": 35.25,
+      "m9_retention_pct": 39.55,
+      "m10_retention_pct": 37.29,
+      "m11_retention_pct": 50.17
+    },
+    {
+      "cohort_month": "2011-01",
+      "new_users": 415,
+      "m1_retention_pct": 21.93,
+      "m2_retention_pct": 26.75,
+      "m3_retention_pct": 22.89,
+      "m4_retention_pct": 32.05,
+      "m5_retention_pct": 28.92,
+      "m6_retention_pct": 24.82,
+      "m7_retention_pct": 24.1,
+      "m8_retention_pct": 29.88,
+      "m9_retention_pct": 32.77,
+      "m10_retention_pct": 36.63,
+      "m11_retention_pct": 11.81
+    },
+    {
+      "cohort_month": "2011-02",
+      "new_users": 380,
+      "m1_retention_pct": 18.68,
+      "m2_retention_pct": 18.68,
+      "m3_retention_pct": 28.68,
+      "m4_retention_pct": 27.11,
+      "m5_retention_pct": 24.47,
+      "m6_retention_pct": 25.53,
+      "m7_retention_pct": 27.37,
+      "m8_retention_pct": 24.74,
+      "m9_retention_pct": 30.53,
+      "m10_retention_pct": 6.84,
+      "m11_retention_pct": null
+    },
+    {
+      "cohort_month": "2011-03",
+      "new_users": 452,
+      "m1_retention_pct": 14.82,
+      "m2_retention_pct": 25.22,
+      "m3_retention_pct": 19.91,
+      "m4_retention_pct": 22.35,
+      "m5_retention_pct": 16.81,
+      "m6_retention_pct": 26.77,
+      "m7_retention_pct": 23.01,
+      "m8_retention_pct": 27.88,
+      "m9_retention_pct": 8.63,
+      "m10_retention_pct": null,
+      "m11_retention_pct": null
+    },
+    {
+      "cohort_month": "2011-04",
+      "new_users": 300,
+      "m1_retention_pct": 21.0,
+      "m2_retention_pct": 20.33,
+      "m3_retention_pct": 21.0,
+      "m4_retention_pct": 19.67,
+      "m5_retention_pct": 22.67,
+      "m6_retention_pct": 21.67,
+      "m7_retention_pct": 26.0,
+      "m8_retention_pct": 7.33,
+      "m9_retention_pct": null,
+      "m10_retention_pct": null,
+      "m11_retention_pct": null
+    },
+    {
+      "cohort_month": "2011-05",
+      "new_users": 284,
+      "m1_retention_pct": 19.01,
+      "m2_retention_pct": 17.25,
+      "m3_retention_pct": 17.25,
+      "m4_retention_pct": 20.77,
+      "m5_retention_pct": 23.24,
+      "m6_retention_pct": 26.41,
+      "m7_retention_pct": 9.15,
+      "m8_retention_pct": null,
+      "m9_retention_pct": null,
+      "m10_retention_pct": null,
+      "m11_retention_pct": null
+    },
+    {
+      "cohort_month": "2011-06",
+      "new_users": 242,
+      "m1_retention_pct": 17.36,
+      "m2_retention_pct": 15.7,
+      "m3_retention_pct": 26.45,
+      "m4_retention_pct": 23.14,
+      "m5_retention_pct": 33.06,
+      "m6_retention_pct": 9.5,
+      "m7_retention_pct": null,
+      "m8_retention_pct": null,
+      "m9_retention_pct": null,
+      "m10_retention_pct": null,
+      "m11_retention_pct": null
+    },
+    {
+      "cohort_month": "2011-07",
+      "new_users": 187,
+      "m1_retention_pct": 17.65,
+      "m2_retention_pct": 20.32,
+      "m3_retention_pct": 22.46,
+      "m4_retention_pct": 27.27,
+      "m5_retention_pct": 11.23,
+      "m6_retention_pct": null,
+      "m7_retention_pct": null,
+      "m8_retention_pct": null,
+      "m9_retention_pct": null,
+      "m10_retention_pct": null,
+      "m11_retention_pct": null
+    },
+    {
+      "cohort_month": "2011-08",
+      "new_users": 169,
+      "m1_retention_pct": 20.12,
+      "m2_retention_pct": 24.26,
+      "m3_retention_pct": 24.26,
+      "m4_retention_pct": 12.43,
+      "m5_retention_pct": null,
+      "m6_retention_pct": null,
+      "m7_retention_pct": null,
+      "m8_retention_pct": null,
+      "m9_retention_pct": null,
+      "m10_retention_pct": null,
+      "m11_retention_pct": null
+    },
+    {
+      "cohort_month": "2011-09",
+      "new_users": 299,
+      "m1_retention_pct": 23.41,
+      "m2_retention_pct": 30.1,
+      "m3_retention_pct": 11.37,
+      "m4_retention_pct": null,
+      "m5_retention_pct": null,
+      "m6_retention_pct": null,
+      "m7_retention_pct": null,
+      "m8_retention_pct": null,
+      "m9_retention_pct": null,
+      "m10_retention_pct": null,
+      "m11_retention_pct": null
+    },
+    {
+      "cohort_month": "2011-10",
+      "new_users": 357,
+      "m1_retention_pct": 23.81,
+      "m2_retention_pct": 11.48,
+      "m3_retention_pct": null,
+      "m4_retention_pct": null,
+      "m5_retention_pct": null,
+      "m6_retention_pct": null,
+      "m7_retention_pct": null,
+      "m8_retention_pct": null,
+      "m9_retention_pct": null,
+      "m10_retention_pct": null,
+      "m11_retention_pct": null
+    },
+    {
+      "cohort_month": "2011-11",
+      "new_users": 323,
+      "m1_retention_pct": 11.15,
+      "m2_retention_pct": null,
+      "m3_retention_pct": null,
+      "m4_retention_pct": null,
+      "m5_retention_pct": null,
+      "m6_retention_pct": null,
+      "m7_retention_pct": null,
+      "m8_retention_pct": null,
+      "m9_retention_pct": null,
+      "m10_retention_pct": null,
+      "m11_retention_pct": null
+    },
+    {
+      "cohort_month": "2011-12",
+      "new_users": 41,
+      "m1_retention_pct": null,
+      "m2_retention_pct": null,
+      "m3_retention_pct": null,
+      "m4_retention_pct": null,
+      "m5_retention_pct": null,
+      "m6_retention_pct": null,
+      "m7_retention_pct": null,
+      "m8_retention_pct": null,
+      "m9_retention_pct": null,
+      "m10_retention_pct": null,
+      "m11_retention_pct": null
+    }
+  ],
+  "guest_metrics": [
+    {
+      "order_month": "2010-12",
+      "guest_orders": 157,
+      "total_orders": 1552,
+      "guest_order_share_pct": 10.12,
+      "guest_revenue_share_pct": 28.31,
+      "guest_avg_revenue_per_order": 1427.13
+    },
+    {
+      "order_month": "2011-01",
+      "guest_orders": 98,
+      "total_orders": 1081,
+      "guest_order_share_pct": 9.07,
+      "guest_revenue_share_pct": 18.15,
+      "guest_avg_revenue_per_order": 1101.69
+    },
+    {
+      "order_month": "2011-02",
+      "guest_orders": 101,
+      "total_orders": 1093,
+      "guest_order_share_pct": 9.24,
+      "guest_revenue_share_pct": 12.89,
+      "guest_avg_revenue_per_order": 649.57
+    },
+    {
+      "order_month": "2011-03",
+      "guest_orders": 129,
+      "total_orders": 1441,
+      "guest_order_share_pct": 8.95,
+      "guest_revenue_share_pct": 15.46,
+      "guest_avg_revenue_per_order": 828.86
+    },
+    {
+      "order_month": "2011-04",
+      "guest_orders": 96,
+      "total_orders": 1236,
+      "guest_order_share_pct": 7.77,
+      "guest_revenue_share_pct": 11.82,
+      "guest_avg_revenue_per_order": 635.86
+    },
+    {
+      "order_month": "2011-05",
+      "guest_orders": 124,
+      "total_orders": 1669,
+      "guest_order_share_pct": 7.43,
+      "guest_revenue_share_pct": 10.9,
+      "guest_avg_revenue_per_order": 651.56
+    },
+    {
+      "order_month": "2011-06",
+      "guest_orders": 135,
+      "total_orders": 1525,
+      "guest_order_share_pct": 8.85,
+      "guest_revenue_share_pct": 11.43,
+      "guest_avg_revenue_per_order": 625.51
+    },
+    {
+      "order_month": "2011-07",
+      "guest_orders": 131,
+      "total_orders": 1452,
+      "guest_order_share_pct": 9.02,
+      "guest_revenue_share_pct": 14.02,
+      "guest_avg_revenue_per_order": 737.91
+    },
+    {
+      "order_month": "2011-08",
+      "guest_orders": 72,
+      "total_orders": 1339,
+      "guest_order_share_pct": 5.38,
+      "guest_revenue_share_pct": 12.24,
+      "guest_avg_revenue_per_order": 1233.3
+    },
+    {
+      "order_month": "2011-09",
+      "guest_orders": 79,
+      "total_orders": 1820,
+      "guest_order_share_pct": 4.34,
+      "guest_revenue_share_pct": 8.69,
+      "guest_avg_revenue_per_order": 1134.17
+    },
+    {
+      "order_month": "2011-10",
+      "guest_orders": 102,
+      "total_orders": 2007,
+      "guest_order_share_pct": 5.08,
+      "guest_revenue_share_pct": 9.13,
+      "guest_avg_revenue_per_order": 990.62
+    },
+    {
+      "order_month": "2011-11",
+      "guest_orders": 109,
+      "total_orders": 2753,
+      "guest_order_share_pct": 3.96,
+      "guest_revenue_share_pct": 21.65,
+      "guest_avg_revenue_per_order": 2895.41
+    },
+    {
+      "order_month": "2011-12",
+      "guest_orders": 40,
+      "total_orders": 816,
+      "guest_order_share_pct": 4.9,
+      "guest_revenue_share_pct": 22.88,
+      "guest_avg_revenue_per_order": 2556.78
+    }
+  ]
+}
